@@ -10,7 +10,7 @@
                     <div class="row">
                         <div class="col-md-9">
                             <a href="/" class="text-muted text-decoration-none">
-                                <h3 class="mt-2 mb-2">Task Management System</h3>
+                                <img src="{{asset('images/logo.png')}}" alt="Logo" class="img-fluid mt-1 logo">
                             </a>
                         </div>
                         <div class="col-md-3">
@@ -197,6 +197,10 @@
 
         .font-10 {
             font-size: 10px;
+        }
+
+        .logo {
+            height: 32px;
         }
     </style>
 @endsection
