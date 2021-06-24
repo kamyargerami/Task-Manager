@@ -53,13 +53,16 @@
                         @foreach($tasks as $task)
                             <li class="mb-3 border p-2" data-id="{{$task->id}}">
                                 <div class="row">
-                                    <div class="col-12 col-md-7">
+                                    <div class="col-12 col-md-7" data-bs-toggle="tooltip" data-bs-placement="top"
+                                         title="Project: {{$task->project->title}}">
                                         {{$task->title}}
                                     </div>
 
                                     <div class="col-4 col-md-2">
-                                        <p class="mb-1 font-10">{{$task->created_at->ago()}}</p>
-                                        <p class="mb-0 font-10">{{$task->updated_at->ago()}}</p>
+                                        <p class="mb-1 font-10" data-bs-toggle="tooltip" data-bs-placement="top"
+                                           title="{{$task->created_at}}">{{$task->created_at->ago()}}</p>
+                                        <p class="mb-0 font-10" data-bs-toggle="tooltip" data-bs-placement="top"
+                                           title="{{$task->updated_at}}">{{$task->updated_at->ago()}}</p>
                                     </div>
 
                                     <div class="col-4 col-md-1">

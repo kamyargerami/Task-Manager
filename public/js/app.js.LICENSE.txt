@@ -29,15 +29,6 @@
  * Date: 2021-03-02T17:08Z
  */
 
-/*!
- * jQuery UI Widget 1.12.1
- * http://jqueryui.com
- *
- * Copyright jQuery Foundation and other contributors
- * Released under the MIT license.
- * http://jquery.org/license
- */
-
 /**
  * @license
  * Lodash <https://lodash.com/>
