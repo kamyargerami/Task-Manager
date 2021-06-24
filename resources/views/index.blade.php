@@ -141,7 +141,7 @@
                 $('#sort-btn').show('slow');
             }
         });
-        
+
         $("#sortable").disableSelection();
 
         $('#sort-btn').click(function () {
