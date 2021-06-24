@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
 
+    <link rel="icon" href="{{asset('images/favicon.jpg')}}" type="image/jpg">
+
     <link rel="stylesheet" href="{{mix('css/app.css')}}">
     @yield('style')
 </head>
