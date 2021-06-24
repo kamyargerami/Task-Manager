@@ -18,7 +18,7 @@ class TaskController extends Controller
             if ($request->project_id) {
                 $query->where('project_id', $request->project_id);
             }
-        })->orderByDesc('priority')->ordered()->paginate(10);
+        })->orderBy('priority')->ordered()->paginate(10);
 
         $projects = Project::get()->pluck('title', 'id')->toArray();
 

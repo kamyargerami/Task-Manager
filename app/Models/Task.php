@@ -14,7 +14,7 @@ class Task extends Model implements Sortable
     use SortableTrait;
 
     public $sortable = [
-        'order_column_name' => 'order',
+        'order_column_name' => 'priority',
         'sort_when_creating' => true,
     ];
 

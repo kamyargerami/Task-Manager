@@ -12,13 +12,17 @@
         #sortable li {
             list-style-type: none;
         }
+
+        .font-10 {
+            font-size: 10px;
+        }
     </style>
 @endsection
 
 @section('content')
-    <div class="container mt-5">
+    <div class="container mt-4 mb-4">
         <div class="justify-content-center d-flex">
-            <div class="col-md-9 card">
+            <div class="col-lg-11 card">
                 <div class="card-header">
                     <div class="row">
                         <div class="col-md-9">
@@ -44,33 +48,42 @@
                 <div class="card-body">
                     @include('alerts')
                     <ul id="sortable" class="mt-3">
-                        <li class="mb-2 fw-bold">
+                        <div class="mb-2 fw-bold">
                             <div class="row">
-                                <div class="col-9">
+                                <div class="col-2 col-lg-7">
                                     Title
                                 </div>
 
-                                <div class="col-1">
+                                <div class="col-5 col-lg-2">
+                                    Create/Update
+                                </div>
+
+                                <div class="col-3 col-lg-1">
                                     Priority
                                 </div>
 
-                                <div class="col-2">
+                                <div class="col-2 col-lg-2">
                                     Action
                                 </div>
                             </div>
-                        </li>
+                        </div>
                         @foreach($tasks as $task)
                             <li class="mb-3 border p-2" data-id="{{$task->id}}">
                                 <div class="row">
-                                    <div class="col-9">
+                                    <div class="col-12 col-md-7">
                                         {{$task->title}}
                                     </div>
 
-                                    <div class="col-1">
-                                        {{$task->priority}}
+                                    <div class="col-4 col-md-2">
+                                        <p class="mb-1 font-10">{{$task->created_at->ago()}}</p>
+                                        <p class="mb-0 font-10">{{$task->updated_at->ago()}}</p>
                                     </div>
 
-                                    <div class="col-2">
+                                    <div class="col-4 col-md-1">
+                                        {{$task->priority ?: '- -'}}
+                                    </div>
+
+                                    <div class="col-4 col-md-2">
                                         <a data-bs-toggle="modal" data-bs-target="#editModal"
                                            class="edit-icon text-dark"
                                            data-title="{{$task->title}}" data-project="{{$task->project_id}}"
@@ -151,12 +164,7 @@
                         </div>
 
                         <div class="form-group mt-3">
-                            <label for="edit-priority-input">Priority</label>
-                            <input type="number" name="priority" class="form-control" id="edit-priority-input"
-                                   placeholder="Priority" min="0" max="500">
-                        </div>
-
-                        <div class="form-group mt-3">
+                            <label for="edit-project-input">Project</label>
                             <select name="project_id" class="form-control" id="edit-project-input">
                                 <option value="">Select Project</option>
                                 @foreach($projects as $project_id => $title)
@@ -206,15 +214,16 @@
                 if (typeof result.status !== 'undefined' && result.status == 'success') {
                     $('#sort-btn').hide('slow');
                     window.location.reload();
-                } else
-                    alert('Update sort failed')
+                }
+            }).fail(function (result) {
+                alert('Update sort failed');
+                console.log(result);
             });
         });
 
         $('.edit-icon').click(function () {
             $('#edit-id-input').val($(this).data('id'));
             $('#edit-title-input').val($(this).data('title'));
-            $('#edit-priority-input').val($(this).data('priority'));
             $('#edit-project-input').val($(this).data('project'));
         });
 
