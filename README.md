@@ -15,6 +15,7 @@ npm install
 
 cp .env.example .env
 
+php artisan key:generate
 ```
 
 Setup your database information in .env file and then migrate the database
