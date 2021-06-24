@@ -54,7 +54,7 @@
                             <li class="mb-3 border p-2" data-id="{{$task->id}}">
                                 <div class="row">
                                     <div class="col-12 col-md-7" data-bs-toggle="tooltip" data-bs-placement="top"
-                                         title="Project: {{$task->project->title}}">
+                                         title="Project: {{$task->project ? $task->project->title : ''}}">
                                         {{$task->title}}
                                     </div>
 
